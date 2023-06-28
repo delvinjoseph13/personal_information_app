@@ -1,29 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:personal_information/project4/Homescen.dart';
+import 'package:personal_information/project4/update.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+import 'add.dart';
+import 'extrapage.dart';
 
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
+class HomeScreen extends StatelessWidget {
+  HomeScreen({super.key});
 
-class _HomeScreenState extends State<HomeScreen> {
+  final _pages = [Homescene(),Addinfo()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'personal information',
-        ),
-        backgroundColor: Colors.grey,
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.pushNamed(context, '/add');
+
+      body: SafeArea(
+          child: ValueListenableBuilder(
+        valueListenable: indexchangenotifer,
+        builder: (context, int index, _) {
+          return _pages[index];
         },
-        child: Icon(Icons.add),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      )),
+      bottomNavigationBar: BottomNavigation(),
+      
     );
   }
 }
