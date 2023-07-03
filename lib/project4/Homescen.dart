@@ -33,18 +33,60 @@ class Homescene extends StatelessWidget {
                 return Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: Container(
-                    height: 80,
+                    height: 120,
                     width: double.infinity,
                    
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      color: Colors.white
+                      color: Colors.grey,
                     ),
-                    child:Column(
+                    child:Row(
+                      
+                     mainAxisAlignment: MainAxisAlignment.start,
+                    //  crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(infoshap['name'])
+                        CircleAvatar( 
+                          radius: 31,
+                          backgroundColor: Colors.black,
+                          child: 
+                          Text(infoshap['state']),
+                          
+                          ),
+                        
+                       
+                     Padding(
+                       padding: const EdgeInsets.symmetric(horizontal: 25),
+                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                                      //     crossAxisAlignment: CrossAxisAlignment.center,
+
+                         children:
+
+                          [
+                            Text('fathername:'),
+                            Text(infoshap ['fathername'],style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text('mothername:'),
+                          ),
+                         Text(infoshap['mothername'],style: TextStyle(fontSize: 19,fontWeight: FontWeight.bold),),
+                         Text(infoshap['phone'].toString(),style: TextStyle(fontSize: 19,fontWeight: FontWeight.bold),)],
+                       
+                       ),
+                     ),
+                     Row(
+                      children: [
+                       
+                       Text(infoshap['name'],style: TextStyle(fontSize: 19,fontWeight: FontWeight.bold),)
+                     
+                  //   IconButton(onPressed: (){}, icon:Icon(icon:))
                       ],
-                    )
+                     )
+                      ],
+                      
+                    
+                    ),
+                    
                   ),
                 );
               },
